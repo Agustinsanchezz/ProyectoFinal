@@ -1,0 +1,34 @@
+from django.db import models
+from django.contrib.auth.models import User
+
+
+# Create your models here.
+
+class Perro(models.Model):
+    name=models.CharField(max_length=20)
+    raza=models.CharField(max_length=20)
+    edad=models.IntegerField()
+    def __str__(self):
+        return f"Nombre:{self.name} - Raza {self.raza} - Edad{self.edad}"
+class Gato(models.Model):
+    name=models.CharField(max_length=20)
+    raza=models.CharField(max_length=20)
+    edad=models.IntegerField()
+    def __str__(self):
+        return f"Nombre:{self.name} - Raza {self.raza} - Edad{self.edad}"
+class Ave(models.Model):
+    name=models.CharField(max_length=20)
+    raza=models.CharField(max_length=20)
+    edad=models.IntegerField()
+    def __str__(self):
+        return f"Nombre:{self.name} - Raza {self.raza} - Edad{self.edad}"
+
+class Avatar(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+
+    imagen=models.ImageField(upload_to='avatares', null=True, blank= True)
+
+class Blog(models.Model):
+    titulo=models.CharField(max_length=250)
+    contenido=models.CharField(max_length=1000)
+    picture=models.ImageField()

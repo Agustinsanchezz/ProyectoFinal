@@ -1,0 +1,43 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<div>
+    <h1>Publicar post</h1> 
+</div>
+{% if miFormulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+
+{% endif %}
+    
+    <form action="" method="POST">
+    {% csrf_token %}
+
+        <!-- Acá está la magia de Django-->
+        
+        
+            {{ miFormulario.as_p }}
+       
+
+        <input type="submit", value="Enviar">
+        <button type="submit">Upload</button>
+
+    </form>
+
+<body>
+    {% for p in blogs%}
+        <li>{{p}}</li>
+        <button>
+            <a href="{%url 'eliminarBlog' p.name%}"> Eliminar </a>
+            <a href="{%url 'editarBlog' p.name%}"> Editar </a>
+        </button>    
+
+    
+    {% endfor %}
+    <br>
+    <br>
+    <a href="perros">Agregar otro Perro</a>
+</body>
+
+{% endblock  %}

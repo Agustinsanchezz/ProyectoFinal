@@ -1,0 +1,40 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<div>
+    <h1>Inicio <br></h1>
+    
+    <h2>Bienvenido {{user.username}}<h2>
+    {% if request.user.is_authenticated %}
+    <button><a href="{% url 'Logout' %}">Salir </a></button>
+    {% endif %}
+    
+    <h3> <br>Momentaneamente solo disponemos la revision de turnos para PERROS:  </h3> 
+</div>
+<form action="/AppCoder/buscar/" method="GET">
+
+    <input type="string" name="name" id="name">
+
+    <input type="submit" value="Buscar">
+
+</form>
+    {% if nombre %}
+
+    <p>Estamos buscando el: {{name}}</p>
+
+    <ul>
+    {% for nombre in Perro %}
+        <li> {{perro.name}} </li>
+        
+    {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+
+
+{% endblock  %}
+
+

@@ -1,0 +1,25 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Gatos - Lista </h1>
+<ul>
+    {%for gatos in object_list%} 
+        <li>
+            <p>NOMBRE: {{gatos.name}}</p>
+            <p>
+                <a href="{% url 'Detail' gatos.id %}">Ver</a>
+                <a href="{% url 'Edit' gatos.id%}">Editar</a>
+                <a href="{% url 'Delete' gatos.id%}">Borrar</a>
+                    
+            </p>
+        </li>
+                
+    {% endfor %}
+</ul>
+<a href="{% url 'New' %}">Nuevo</a>
+
+{% endblock  %}
+
+
+
+ 
