@@ -10,6 +10,10 @@
     <button><a href="{% url 'Logout' %}">Salir </a></button>
     {% endif %}
     
+    {% if request.user.is_authenticated %}
+    <button><a href="{% url 'EditarPerfil' %}">Editar Perfil </a></button>
+    {% endif %}
+    
     <h3> <br>Momentaneamente solo disponemos la revision de turnos para PERROS:  </h3> 
 </div>
 <form action="/AppCoder/buscar/" method="GET">

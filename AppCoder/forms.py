@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class blog_formulario(forms.Form):
     titulo=forms.CharField()
     contenido=forms.CharField()
-    imagen=forms.ImageField()
+    fecha=forms.DateField()
 
 class PerroFormulario(forms.Form):
     name=forms.CharField()

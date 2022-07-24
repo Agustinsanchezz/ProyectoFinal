@@ -32,7 +32,7 @@ def blog(request):
             miFormulario=blog_formulario(request.POST)
             if miFormulario.is_valid():
                 informacion= miFormulario.cleaned_data
-                blog=Blog(titulo=informacion['titulo'],contenido=informacion['contenido'], imagen=informacion['imagen'])
+                blog=Post(titulo=informacion['titulo'],contenido=informacion['contenido'], fecha=informacion['fecha'])
                 blog.save()
                 return render(request,"AppCoder/padre.html")
         else:
@@ -40,9 +40,9 @@ def blog(request):
         return render(request,"AppCoder/blog.html",{"miFormulario":miFormulario})
 
 def leerBlog(request):
-    blogs=Blog.objects.all()
+    blogs=Post.objects.all()
     contexto={"blogs":blogs}
-    return render(request,"AppCoder/blog.html",contexto)
+    return render(request,"AppCoder/leerblog.html",contexto)
 
 
 

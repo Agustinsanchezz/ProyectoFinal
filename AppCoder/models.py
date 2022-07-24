@@ -28,7 +28,7 @@ class Avatar(models.Model):
 
     imagen=models.ImageField(upload_to='avatares', null=True, blank= True)
 
-class Blog(models.Model):
+class Post(models.Model):
     titulo=models.CharField(max_length=250)
     contenido=models.CharField(max_length=1000)
-    picture=models.ImageField()
+    fecha=models.DateField()
